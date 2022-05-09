@@ -10,7 +10,7 @@ module.exports = {
     },
     //gets a single user by ID
     getSingleUser(req, res) {
-        User.findOne({ _id: req.params.userID })
+        ser.findOne({ "_id": req.params.userId })
         .select("-__v")
         .then(user =>  res.json(user))
         .catch((err) => res.status(500).json(err));
@@ -19,7 +19,7 @@ module.exports = {
     //create user
     createUser(req, res) {
         User.create(req.body)
-        .then((user) => res.json(user))
+        .then(user => res.json(user))
         .catch((err) => res.status(500).json(err));
     },
 
